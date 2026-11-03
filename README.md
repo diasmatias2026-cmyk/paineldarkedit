@@ -27,3 +27,6 @@ Hospedar `public/` como site estÃ¡tico HTTPS; `vercel.json` configura headers na
 
 ## Hospedagem escolhida
 Por preferência expressa do proprietário, a versão será uma prévia privada de avaliação na Vercel Hobby, sem divulgação e sem upgrade. O uso comercial do plano Hobby não é permitido, inclusive para operação interna; resolver o plano/hospedagem antes de usar em produção comercial. Nenhuma publicação Sites será realizada. CSP também declarada no HTML; headers de resposta configurados em vercel.json. A integração do executável continua pendente.
+
+## URL de acesso
+https://paineldarkedit.vercel.app/ â€” entre primeiro com sua conta Vercel autorizada e depois com a conta administrativa Supabase. Nenhum upgrade pago foi contratado. A publicaÃ§Ã£o atual usa snapshot; falta liberar a integraÃ§Ã£o GitHub na Vercel para deploy automÃ¡tico a cada push.
