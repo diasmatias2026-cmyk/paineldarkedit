@@ -25,3 +25,5 @@ window.addEventListener('pagehide',()=>{stopPlayback();clearInterval(exportTimer
 const zoom=$('#frameZoom');zoom.addEventListener('input',()=>{$('#demoScene').style.setProperty('--zoom',Number(zoom.value)/100);$('#zoomValue').textContent=zoom.value+'%'});
 document.addEventListener('keydown',()=>document.documentElement.classList.add('keyboard-input'));document.addEventListener('pointerdown',()=>document.documentElement.classList.remove('keyboard-input'));
 draw();
+
+const checkoutParams=new URLSearchParams(location.search);for(const link of document.querySelectorAll('.checkout-link')){const target=new URL('https://pay.kiwify.com.br/PZAivqQ');for(const key of ['afid','src','sck','utm_source','utm_medium','utm_campaign','utm_term','utm_content','s1','s2','s3']){const value=checkoutParams.get(key);if(value&&value.length<=200)target.searchParams.set(key,value);}link.href=target.href;}
