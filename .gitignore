@@ -1,5 +1,8 @@
 .env*
 node_modules/
-.openai/
+.openai/*
+!.openai/hosting.json
 .vercel/
 *.log
+
+/login-*.png
