@@ -1,32 +1,33 @@
-# DarkEdit — painel administrativo
+# DarkEdit
 
-Painel conectado ao Supabase `idsesxzabyswkfmtgjen`. Frontend estático sem dependências de terceiros. Diretório público: `public/`.
+Editor Windows com ativação por e-mail em um aparelho, painel de licenças no Supabase e páginas de apresentação e entrega na Vercel. Consulte [ENTREGA-1.2.1.md](ENTREGA-1.2.1.md) para evidências e pendências.
 
-## Primeiro acesso
-Use o e-mail administrativo `diasmatias2026@gmail.com` e clique em **Primeiro acesso: cadastrar minha senha**. Escolha uma senha exclusiva com pelo menos 12 caracteres, confirme o e-mail enviado pelo Supabase e entre. A confirmação é exclusiva do administrador; o fluxo dos clientes continuará sem código. Não envie senhas pelo chat.
+## Acessos
+- Vendas: https://darkedit-vendas.vercel.app/
+- Obrigado/tutorial: https://darkedit-vendas.vercel.app/obrigado/
+- Downloads: https://darkedit-vendas.vercel.app/downloads/
+- Administração: https://paineldarkedit.vercel.app/
 
-Somente o e-mail aprovado em `darkedit_private.administrators`, confirmado pelo Supabase Auth e com sessão existente, pode consultar ou alterar dados. Cadastrar outra conta não concede acesso administrativo.
+A conta administrativa existente entra com e-mail e senha. O comprador usa o e-mail da compra na área de downloads e no programa. A licença do proprietário está cadastrada como manual; não é uma compra Kiwify.
 
-## Segurança e operação
-- RLS e privilégios mínimos em todas as tabelas; acesso anônimo negado.
-- Lista de administradores em schema privado; sem permissão de edição pelo painel.
-- Sessão somente em memória: recarregar a página exige login. Nenhum token no localStorage.
-- Auditoria criada por triggers do banco; clientes do navegador não podem editar o histórico.
-- Chave publishable pública; nenhuma chave administrativa no frontend.
-- CSP restritiva e headers de segurança em `vercel.json`.
-- Consulta de até 1.000 clientes recentes e 200 eventos recentes. Paginação completa é uma etapa futura.
-- Banco é a autoridade para validar campos, unicidade de e-mail e permissões.
+## Código
+- public/: painel administrativo estático.
+- vendas/: apresentação, tutorial e área do cliente.
+- commercial/editor/: fonte da versão comercial Windows 1.2.1.
+- supabase/: schema, funções de pagamento e controle de dispositivos.
+- releases/: instaladores e hashes locais, ignorados pelo Git.
+- private/: URL secreta do webhook, somente local e ignorada pelo Git.
 
-## Escopo desta versão
-Gerenciar cadastro, bloquear/reativar licenças, desvincular aparelho e editar a oferta. A integração da ativação e verificação de licença no executável Windows/Android ainda não foi implementada. Desvincular no painel não controla versões pessoais antigas do aplicativo.
+Nenhuma chave de serviço ou senha integra o frontend. A chave publishable é pública. O banco aplica RLS e autorização administrativa por conta verificada e sessão existente; os clientes não podem editar o histórico de auditoria. A sessão administrativa do navegador fica em memória.
 
-A tabela começa vazia; nenhum cliente fictício foi inserido. O banco e o navegador foram testados separadamente; primeiro login real depende de confirmar o e-mail administrativo. Uma auditoria não garante ausência de toda vulnerabilidade.
+As páginas de vendas e entrega estão públicas. O bucket de arquivos é privado e emite links temporários após consulta à licença. A instalação pessoal antiga permanece independente da versão comercial.
 
-## Publicação
-Hospedar `public/` como site estático HTTPS; `vercel.json` configura headers na Vercel. Antes de publicar verificar plano, equipe e permissão para uso comercial. Não contratar upgrades sem autorização. A migração inicial está em `supabase/schema.sql`, já aplicada ao projeto indicado.
+## Kiwify
+O checkout está conectado aos botões de compra. A configuração da conta Kiwify e o teste de webhook ainda são necessários para ativar a liberação automática; o receptor continua em modo de teste. Ver [KIWIFY-INTEGRACAO.md](KIWIFY-INTEGRACAO.md). Não foi cobrada compra de teste.
 
-## Hospedagem escolhida
-Por prefer�ncia expressa do propriet�rio, a vers�o ser� uma pr�via privada de avalia��o na Vercel Hobby, sem divulga��o e sem upgrade. O uso comercial do plano Hobby n�o � permitido, inclusive para opera��o interna; resolver o plano/hospedagem antes de usar em produ��o comercial. Nenhuma publica��o Sites ser� realizada. CSP tamb�m declarada no HTML; headers de resposta configurados em vercel.json. A integra��o do execut�vel continua pendente.
+## Hospedagem e operação
+Nenhum upgrade pago foi contratado. O plano Vercel Hobby restringe uso comercial; o proprietário precisa adequar o plano/hospedagem antes da operação comercial. Não houve alteração de cobrança. A publicação é feita por snapshot; push no GitHub não faz deploy automático enquanto a integração GitHub/Vercel não for autorizada.
 
-## URL de acesso
-https://paineldarkedit.vercel.app/ — entre primeiro com sua conta Vercel autorizada e depois com a conta administrativa Supabase. Nenhum upgrade pago foi contratado. A publicação atual usa snapshot; falta liberar a integração GitHub na Vercel para deploy automático a cada push.
+O advisor Supabase ainda informa proteção contra senhas vazadas desativada. As tabelas privadas com RLS sem políticas estão intencionalmente fechadas ao navegador. Verificar também as URLs administrativas de redirecionamento do Auth para futuras recuperações de senha.
+
+Android está no planejamento e não integra a oferta Windows atual.

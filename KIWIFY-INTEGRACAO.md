@@ -14,10 +14,10 @@ Ativar a página personalizada e colar no campo Cartão ou Pix aprovado:
 https://darkedit-vendas.vercel.app/obrigado/
 Salvar produto. Não usar o gerador de upsell: esta página é orientação, não uma nova oferta.
 
-As páginas continuam protegidas pela autenticação Vercel para avaliação. Compradores comuns não conseguem abrir sem acesso. Antes de divulgar vendas reais, resolver acesso público e hospedagem compatível com uso comercial; nenhum upgrade foi contratado.
+As páginas de vendas, obrigado e downloads estão públicas. O painel administrativo tem autenticação própria. Nenhum upgrade de hospedagem foi contratado. A conformidade do plano escolhido com uso comercial deve ser conferida pelo proprietário antes da divulgação.
 
 ## Configurar o webhook
-A URL completa com token está somente em ../DarkEdit-integracao-privada/configurar-webhook.txt (fora deste repositório). Não publicar nem compartilhar com afiliados.
+A URL completa com token está em private/configurar-webhook.txt na cópia local, ignorada pelo Git. Não publicar nem compartilhar com afiliados.
 Kiwify > Apps > Webhooks > Criar Webhook > selecionar DarkEdit.
 Eventos: compra aprovada, reembolso, chargeback. Usar Testar Webhook e consultar Ver logs.
 Estado atual: TESTE; enabled=false. HTTP 200 com action=dry_run confirma que o evento foi autenticado e os campos/produto foram aceitos. duplicate indica repetição do mesmo pedido/evento. ignored_product requer conferir o ID do produto. Somente depois desse teste e da validação do executável comercial, habilitar o processamento real.
@@ -36,4 +36,4 @@ O servidor lê Customer.email do JSON enviado pela Kiwify e normaliza para minú
 - Advisor: RLS sem políticas nas tabelas privadas é intencional. Aviso de proteção contra senhas vazadas desativada no Auth continua pendente de configuração/limites do plano.
 
 ## Ainda pendente para vender com entrega automática
-Configurar o webhook na conta Kiwify e validar payload real; ativar integração; integrar consulta/vínculo de licença na versão comercial do executável; preparar entrega segura do instalador; liberar hospedagem pública apropriada; testar ponta a ponta. A versão pessoal do DarkEdit continua sem licença por escolha do proprietário. Nenhum pagamento de teste real foi cobrado.
+Configurar o webhook na conta Kiwify, validar o evento real e ativar integração. O executável comercial 1.2.1, o vínculo por aparelho, o armazenamento privado e a área pública de downloads foram implementados e testados; ver ENTREGA-1.2.1.md. A versão pessoal do DarkEdit continua sem licença por escolha do proprietário. Nenhum pagamento de teste real foi cobrado.

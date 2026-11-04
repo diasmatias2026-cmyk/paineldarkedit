@@ -1,3 +1,13 @@
+# Verificação atual — Windows 1.2.1 e entrega
+
+Ver [ENTREGA-1.2.1.md](ENTREGA-1.2.1.md) para o estado atual. A versão comercial possui consulta online e vínculo de um aparelho; a área pública emite URLs temporárias de arquivos privados. Testes reais de instalação, renderização, ativação HTTPS e download foram executados. As contas de teste foram removidas. A licença manual do proprietário está ativa.
+
+O receptor Kiwify permanece em modo de teste, aguardando configurar e testar na conta do proprietário. O advisor informa proteção contra senhas vazadas desativada. O acesso por e-mail sem senha é uma decisão expressa do proprietário e não autentica a identidade do comprador. Não houve contratação de plano pago nem auditoria externa/pentest completo. O plano de hospedagem deve ser adequado ao uso comercial.
+
+O texto abaixo registra a auditoria anterior do painel, antes da implementação comercial.
+
+---
+
 # Revisão de segurança — 2026-11-03
 
 Corrigidos: ausência de login, dados exclusivamente locais, falta de autorização no banco e histórico alterável pelo cliente. Removidos clientes de demonstração da versão integrada.
